@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 #https://github.com/danmar/cppcheck/blob/master/tools/git-pre-commit-cppcheck
+#https://github.com/kbenzie/git-cmake-format
 #syntastic/linters.vim
 
 #list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/")
