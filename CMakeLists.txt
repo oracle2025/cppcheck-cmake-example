@@ -10,6 +10,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake/")
 
 include(clang-format)
 include(cppcheck)
+include(cpd)
 
 set(CMAKE_CXX_CPPCHECK cppcheck
     --enable=all
