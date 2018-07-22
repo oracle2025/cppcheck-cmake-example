@@ -1,6 +1,4 @@
-# additional target to perform clang-format run, requires clang-format
-
-# get all project files
+# HACK this workaround is required to avoid qml files checking ^_^
 file(GLOB_RECURSE ALL_SOURCE_FILES *.cpp *.h)
 foreach (SOURCE_FILE ${ALL_SOURCE_FILES})
     string(FIND ${SOURCE_FILE} ${PROJECT_BINARY_DIR} PROJECT_TRDPARTY_DIR_FOUND)
@@ -8,13 +6,10 @@ foreach (SOURCE_FILE ${ALL_SOURCE_FILES})
         list(REMOVE_ITEM ALL_SOURCE_FILES ${SOURCE_FILE})
     endif ()
 endforeach ()
-
-find_program(CLANG_FORMAT clang-format)
+find_program(CPP_LINT cpplint)
 add_custom_target(
-    format
-    COMMAND ${CLANG_FORMAT}
-    -style=LLVM
-    -i
+    cpplint
+    COMMAND ${CPP_LINT}
     ${ALL_SOURCE_FILES}
     )
 

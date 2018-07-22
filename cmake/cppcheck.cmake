@@ -10,15 +10,17 @@ foreach (SOURCE_FILE ${ALL_SOURCE_FILES})
     endif ()
 endforeach ()
 find_program(CPP_CHECK cppcheck)
+set(CPPCHECK_TEMPLATE "cppcheck:{file}:{line}: {severity}:{message}")
 add_custom_target(
     cppcheck
     COMMAND ${CPP_CHECK}
     --enable=warning,performance,portability,information,missingInclude
     --std=c++11
-    --library=qt.cfg
+    #--library=qt.cfg
+    --error-exitcode=1
     #--template="[{severity}][{id}] {message} {callstack} \(On {file}:{line}\)"
-    --template="cppcheck: {file}:{line}: {severity}: {message}"
-    --verbose
+    --template=${CPPCHECK_TEMPLATE}
+    #--verbose
     --quiet
     ${ALL_SOURCE_FILES}
     )

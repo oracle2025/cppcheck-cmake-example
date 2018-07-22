@@ -8,10 +8,11 @@ foreach (SOURCE_FILE ${ALL_SOURCE_FILES})
 endforeach ()
 find_program(PMD pmd)
 add_custom_target(
-    copypaste
+    cpd
     COMMAND ${PMD}
     cpd
     --minimum-tokens 100
+    --language cpp
     --files ${ALL_SOURCE_FILES}
     )
 

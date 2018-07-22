@@ -9,8 +9,13 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake/")
 
 include(clang-format)
+
 include(cppcheck)
 include(cpd)
+include(infer)
+include(cpplint)
+
+add_custom_target(check DEPENDS cppcheck cpd infer cpplint)
 
 set(CMAKE_CXX_CPPCHECK cppcheck
     --enable=all
