@@ -22,7 +22,11 @@ include(infer)
 include(cpplint)
 include(memcheck)
 
-add_custom_target(check DEPENDS cppcheck cpd infer cpplint memcheck)
+if(CMAKE_BUILD_TYPE STREQUAL "Debug")
+	add_custom_target(check DEPENDS cppcheck cpd infer cpplint memcheck)
+else()
+	add_custom_target(check DEPENDS cppcheck cpd infer cpplint)
+endif()
 
 set(CMAKE_CXX_CPPCHECK cppcheck
     --enable=all
