@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.5.1)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 #https://github.com/danmar/cppcheck/blob/master/tools/git-pre-commit-cppcheck
