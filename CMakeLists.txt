@@ -3,6 +3,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 #https://github.com/danmar/cppcheck/blob/master/tools/git-pre-commit-cppcheck
 #https://github.com/kbenzie/git-cmake-format
+#https://stackoverflow.com/questions/40325957/how-do-i-add-valgrind-tests-to-my-cmake-test-target
 #syntastic/linters.vim
 
 #list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake/")
