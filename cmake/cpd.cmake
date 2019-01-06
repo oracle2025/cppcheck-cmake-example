@@ -11,7 +11,7 @@ add_custom_target(
     cpd
     COMMAND ${PMD}
     cpd
-    --minimum-tokens 100
+    --minimum-tokens 20
     --language cpp
     --files ${ALL_SOURCE_FILES}
     )

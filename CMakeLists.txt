@@ -14,6 +14,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # $ cat ./Testing/Temporary/MemoryChecker.*.log
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake/")
 
+set (CMAKE_CXX_STANDARD 11)
+
 include(clang-format)
 
 include(cppcheck)
@@ -28,19 +30,21 @@ else()
 	add_custom_target(check DEPENDS cppcheck cpd infer cpplint)
 endif()
 
-set(CMAKE_CXX_CPPCHECK cppcheck
-    --enable=all
-    --inconclusive
-    --std=posix
-    --project=compile_commands.json
-    --error-exitcode=1
-    --template="cppcheck: {file}:{line}: {severity}: {message}")
-set(CMAKE_CXX_CPPLINT cpplint)
-include (CTest)
+#set(CMAKE_CXX_CPPCHECK cppcheck
+    #--enable=all
+    #--inconclusive
+    #--std=posix
+    #--project=compile_commands.json
+    #--error-exitcode=1
+    #--template="cppcheck: {file}:{line}: {severity}: {message}")
+#set(CMAKE_CXX_CPPLINT cpplint)
+#include (CTest)
 add_executable(main main.cpp)
-set(CTEST_MEMORYCHECK_COMMAND_OPTIONS --error-exitcode=1)
-add_test(main_test main)
-add_memcheck(main)
+add_executable(GameRunner src/GameRunner.cpp src/Game.cpp)
+#set(CTEST_MEMORYCHECK_COMMAND_OPTIONS --error-exitcode=1)
+#add_test(main_test main)
+#add_memcheck(main)
+add_memcheck(GameRunner)
 
 
 
